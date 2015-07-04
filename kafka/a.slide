@@ -1,0 +1,15 @@
+Kafka at LinkedIn
+
+A brief introduction to Kafka
+
+9 Jul 2015
+Chandramouli M
+cmahadev@linkedin.com
+
+* Title
+- Distributed Log
+.image producer_consumer.png
+
+* Further readings
+http://go/kafka
+http://kafka.apache.org/documentation.html
