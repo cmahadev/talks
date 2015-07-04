@@ -11,5 +11,5 @@ cmahadev@linkedin.com
 .image producer_consumer.png
 
 * Further readings
-http://go/kafka
-http://kafka.apache.org/documentation.html
+.link http://go/kafka
+.link http://kafka.apache.org/documentation.html
