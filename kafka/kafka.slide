@@ -29,7 +29,8 @@ cmahadev@linkedin.com
 .image producer_consumer.png
 - *Producers* produce to *topics*
 - *Consumers* read from *topics*
-- Kafka servers called *brokers*
+- Kafka servers called *brokers* manage the persistence and replication
+- Kafka *cluster* consists of one or more *brokers* that work together
 
 * Distributed commit log
 - Each topic is maintained as a partitioned commit log
@@ -55,8 +56,7 @@ cmahadev@linkedin.com
 
 * Consumers
 - _Queueing_ and _Publish-Subscribe_
-- *Consumer* *Group*
-- Each partition is assigned to a consumer in the consumer group
+- Each partition is assigned to a single consumer in a *consumer*group*
 - Each message is delivered to one instance within each consumer group
 - Single consumer group = Queueing
 - Messages in a partition are delivered in *order*
