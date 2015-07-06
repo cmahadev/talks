@@ -6,10 +6,86 @@ A brief introduction to Kafka
 Chandramouli M
 cmahadev@linkedin.com
 
-* Title
-- Distributed Log
+* Kafka
+- Publish subscribe messaging
+- Fast
+  Thousands of clients
+  100s of MBs of reads/writes
+- Scalable
+  Partitioned data streams
+  Scale cluster by adding more machines
+- Durable
+  No data loss if a machine goes down
+- Distributed
+
+* Kafka use cases
+- Website activity tracking
+- Messaging such as RabbitMQ, ActiveMQ
+- Metrics
+- Log aggregation
+- Stream processing using Samza/Storm
+
+* Kakfa producer consumer
 .image producer_consumer.png
+- *Producers* produce to *topics*
+- *Consumers* read from *topics*
+- Kafka servers called *brokers*
+
+* Distributed commit log
+- Each topic is maintained as a partitioned commit log
+.image log_anatomy.png
+- Orderered immutable sequence - appended to
+- *offset* identifies each message
+
+* Kafka partitions
+- Retains messages for some period (7 days)
+- No impact on performance
+- Consumers just maintain the *offset*
+- Consumers can come and go without impacting others
+- *Consumer* controls the *offset*. Can *reset* it.
+- *Partitions* act as a unit of parallelism
+- Partitions help the log to scale
+- *Producers* assign messages to partitions
+
+* Distributed commit log
+- Each *broker* handles a subset of the partitions.
+- *Partitions* are replicated for fault tolerance.
+- One *leader* and several *followers*
+- *Leader* handles read/writes.
+
+* Consumers
+- _Queueing_ and _Publish-Subscribe_
+- *Consumer* *Group*
+- Each partition is assigned to a consumer in the consumer group
+- Each message is delivered to one instance within each consumer group
+- Single consumer group = Queueing
+- Messages in a partition are delivered in *order*
+
+* Kafka Tools
+- [[go/reflection]]
+- Kafka Console consumer
+
+* Kafka Mirror Maker
+- Allows data to be replicated across clusters.
+- Just a kafka consumer and producer.
+
+* Kafka at LinkedIn
+- Run as a service
+- *Queueing* cluster
+- *Data* *Deployment* cluster
+  Used from Hadoop
+- *Tracking* cluster
+  Data is aggregated in Aggregate Tracking
+- *Topics* are created automatically on first use with default 8 partitions.
+  If you need more partitions send email to ask_kafka
+
 
 * Further readings
 .link http://go/kafka
 .link http://kafka.apache.org/documentation.html
+.link http://go/kafkafaq
+.link http://go/kafkadeployment
+.link http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying
+.link http://go/howtotrack
+ join kafka-users@linkedin.com
+
