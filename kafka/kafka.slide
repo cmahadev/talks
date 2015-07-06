@@ -79,6 +79,12 @@ cmahadev@linkedin.com
 - *Topics* are created automatically on first use with default 8 partitions.
   If you need more partitions send email to ask_kafka
 
+* Schema registry
+- Register schemas for a type/domain
+- Ensure messages follow a certain schema for a topic
+- Kafka consumers will drop messages that do not satisfy the expected schema
+- Kafka producers will get errors if you are trying to register a schema which is backwards incompatible
+  Watch out for 409 schema registration errors in your logs
 
 * Further readings
 .link http://go/kafka
